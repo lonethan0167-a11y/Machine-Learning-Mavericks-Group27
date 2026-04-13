@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Machine-Learning-Mavericks-Group27_5bcbe920"
+        },
+        {
+            "type": "java",
+            "name": "Launch with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "Lab2_MiniGradeManager_TEMPLATE",
+            "args": "${command:SpecifyProgramArgs}"
+        }
+    ]
+}
