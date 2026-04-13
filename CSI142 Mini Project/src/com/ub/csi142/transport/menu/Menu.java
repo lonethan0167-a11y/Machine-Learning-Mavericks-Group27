@@ -7,16 +7,21 @@ public class Menu {
 
         int choice;
         do{
-            System.out.println("Welcome to the Transpotation System!\n");
+            System.out.println("Welcome to the Transportation System!\n");
             System.out.println("1) Add new Vehicle");
             System.out.println("2) Add new driver");
             System.out.println("3) Add new route");
             System.out.println("4) Exit");
             System.out.print("Enter your choice: ");
 
+            if (!in.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number.\n");
+                in.next();
+                continue;
+
             choice = in.nextInt();
 
-            switch (choice) { //Switch staments are simple and easy but we could later add options which have methods
+            switch (choice) { //Switch statements are simple and easy but we could later add options which have methods
                 case 1:
                     System.out.println("You have chosen to add a new vehicle.\n");
                     break;
