@@ -17,7 +17,7 @@ public class Menu {
 
             if (!in.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a number.\n");
-                in.nextLine();
+                in.next();
                 continue;
             }
             choice = in.nextInt();
@@ -39,9 +39,11 @@ public class Menu {
                     System.out.println("Invalid choice, Please try again.\n");
         
                 }
-            }while (choice != 4);   
-        
+            }
+            while (choice != 4);
+            
         in.close();
         }
+
     }
 
