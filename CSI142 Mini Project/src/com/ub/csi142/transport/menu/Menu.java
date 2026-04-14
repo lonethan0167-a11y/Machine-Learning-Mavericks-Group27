@@ -38,8 +38,7 @@ public class Menu {
                     System.out.println("Invalid choice, Please try again.\n");
         
                 }
-            }
-            while (choice != 4);
+            }while (choice != 4);
             
         in.close();
         }
