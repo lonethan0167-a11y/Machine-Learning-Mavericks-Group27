@@ -52,7 +52,7 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
                 case 4 -> cancelBooking();
                 case 5 -> summaryReport();
                 case 0 -> {
-                    System.out.println("Goodbye!");
+                    System.out.println("\nGoodbye!");
                     return;
                 }
                 default -> System.out.println("Invalid option.  Try again.");
@@ -63,7 +63,7 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
     private void printMenu() {
         System.out.println("\n=== Combi Booking System ===");
         System.out.println("1) View trips");
-        System.out.println(" 2) Register passenger");
+        System.out.println("2) Register passenger");
         System.out.println("3) Book seat(s)");
         System.out.println("4) Cancel booking");
         System.out.println("5) Summary report ");
