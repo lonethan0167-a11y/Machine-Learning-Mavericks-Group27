@@ -3,17 +3,25 @@ package com.ub.csi142.transport.menu;
 import java.util.Scanner;
 public class Menu {
     public void displayMenu(){
-        Scanner sc = new Scanner(System.in);
-            int choice;
-            do{ 
-            System.out.println("Welcome to the Transportation System!\n");
+        Scanner in = new Scanner(System.in);
+        
+        int choice=0;
+        System.out.println("Welcome to the Transportation System!\n");
+            
+        do{ 
             System.out.println("1) Add new Vehicle");
             System.out.println("2) Add new driver");
             System.out.println("3) Add new route");
             System.out.println("4) Exit");
             System.out.print("Enter your choice: ");
+
+            if (!in.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.\n");
+            in.nextLine();
+            continue;
+            }
         
-            choice = sc.nextInt();
+            choice = in.nextInt();
 
 
                     switch (choice) { //Switch statements are simple and easy but we could later add options which have methods
@@ -35,7 +43,7 @@ public class Menu {
                         }
                     }while (choice != 4);
             
-        sc.close();
+        in.close();
     }
 
  }
