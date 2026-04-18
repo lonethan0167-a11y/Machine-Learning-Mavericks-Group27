@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.ub.csi142.transport.model.*;
+import com.ub.csi142.transport.passanger.Passenger;
+import com.ub.csi142.transport.vehicle.Combi;
+import com.ub.csi142.transport.vehicle.Taxi;
 
 /**
  * Console menu controllr for the transport system.
@@ -82,6 +85,19 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
 
         Trip t1 = new Trip("T001", r1, c1, 15);
         trips.add(t1);
+
+            Driver d2 = new Driver("D002", "Alice Driver", "72xxxxxx", "LIC-8899");
+            drivers.add(d2);
+
+            Taxi tx1 = new Taxi("T123XYZ", 4, d2, "Molepolole Rank");
+            combis.add(tx1);
+
+            Route r2 = new Route("Bus rank", "University of Botswana", 4.0, 2.50, tx1);
+            routes.add(r2);
+
+        Trip t2 = new Trip("T002", r2, tx1, 4);
+        trips.add(t2);
+
     }
 
     private void listTrips() {
