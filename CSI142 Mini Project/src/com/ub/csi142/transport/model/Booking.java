@@ -1,5 +1,7 @@
 package com.ub.csi142.transport.model;
 
+import com.ub.csi142.transport.passanger.Passenger;
+
 public class Booking {
     private static int counter = 1;
 

@@ -1,5 +1,7 @@
 package com.ub.csi142.transport.model;
 
+import com.ub.csi142.transport.passanger.Person;
+
 public class Driver extends Person {
     private String licenceNumber;
 

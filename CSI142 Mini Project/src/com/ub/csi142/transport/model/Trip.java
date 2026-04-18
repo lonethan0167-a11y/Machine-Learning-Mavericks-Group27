@@ -1,5 +1,7 @@
 package com.ub.csi142.transport.model;
 
+import com.ub.csi142.transport.vehicle.Combi;
+
 public class Trip {
     private String tripId;
     private Route route;   // composition
