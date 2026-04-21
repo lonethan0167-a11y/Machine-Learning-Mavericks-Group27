@@ -104,3 +104,4 @@ Each member contributed to different parts of the system as outlined below:
   - File ownership: Person.java, Passenger.java, Driver.java, README.md  
   - Actions: inheritance, student discounts field, documentation polish  
 
+## Project Structure
