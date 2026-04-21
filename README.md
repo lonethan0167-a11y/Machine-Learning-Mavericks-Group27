@@ -82,7 +82,7 @@ javac -d out src/com/ub/csi142/transport/app/*.java \
 # Run the application
 java -cp out com.ub.csi142.transport.app.Main
 
----
+```
 
 ## Contributors & Roles
 This project was developed collaboratively by Machine-Learning-Mavericks-Group27.  
