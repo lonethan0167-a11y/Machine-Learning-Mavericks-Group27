@@ -70,7 +70,7 @@ CSI142 Mini Project/
 - **Packages**: `app`, `menu`, `model`  
 - **Robustness**: Input validation and exception handling  
 
-##  How to Compile and Run
+## How to Compile and Run
 From the project root (`CSI142 Mini Project`):
 
 ```bash
