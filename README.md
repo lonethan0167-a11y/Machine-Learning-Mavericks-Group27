@@ -11,15 +11,11 @@ This project simulates everyday commuting using taxis and combis in Botswana. Pa
 
 The system demonstrates how **object-oriented programming (OOP) concepts from CSI142** come together in one coherent project. It manages passenger queues, assigns passengers to taxis/combis based on availability and route, and displays transport summaries.  
 
----
-
 ##  Domain Context
 Transport and mobility is a vital part of everyday life in Botswana. Shared taxis and combis are widely used for commuting. This project reflects that real-world experience by simulating:  
 - Passenger queues at taxi ranks  
 - Vehicle assignment based on destination and availability  
 - Summaries of trips and bookings  
-
----
 
 ##  Features
 - Add passengers and drivers  
@@ -28,8 +24,6 @@ Transport and mobility is a vital part of everyday life in Botswana. Shared taxi
 - Generate trip summaries and reports  
 - Handle invalid input gracefully (e.g., wrong menu choice, invalid data)  
 - Seed demo data for quick testing  
-
----
 
 ##  Project Structure
 CSI142 Mini Project/
@@ -51,9 +45,6 @@ CSI142 Mini Project/
 │── out/                               # Compiled .class files
 │── README.md                          # Project documentation
 │── .gitignore                         # Excludes .class files and output folders
-
-
----
 
 ##  Domain Model (Classes)
 - **Person** – Base entity for individuals  
@@ -79,8 +70,6 @@ CSI142 Mini Project/
 - **Packages**: `app`, `menu`, `model`  
 - **Robustness**: Input validation and exception handling  
 
----
-
 ##  How to Compile and Run
 From the project root (`CSI142 Mini Project`):
 
@@ -92,6 +81,8 @@ javac -d out src/com/ub/csi142/transport/app/*.java \
 
 # Run the application
 java -cp out com.ub.csi142.transport.app.Main
+
+---
 
 ## Contributors & Roles
 This project was developed collaboratively by Machine-Learning-Mavericks-Group27.  
