@@ -56,8 +56,6 @@ CSI142 Mini Project/
 - **Trip** – Represents a journey with passengers and driver  
 - **Booking** – Links passengers to trips  
 
----
-
 ##  OOP Elements Demonstrated
 - **Classes & Objects**: At least 6 meaningful domain classes  
 - **Encapsulation**: Private fields with controlled access  
