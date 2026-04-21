@@ -2,13 +2,9 @@
 *Taxi and Combi Transport Management System*  
 CSI142 Group Mini-Project – Machine-Learning-Mavericks-Group27  
 
----
-
 ##  Assignment Context
-This project was developed as part of the CSI142 Object-Oriented Programming course.  
+Developed for CSI142 Object-Oriented Programming.  
 The goal is to demonstrate OOP principles in a small, realistic Java console application connected to Botswana’s everyday life.  
-
----
 
 ##  Overview
 This project simulates everyday commuting using taxis and combis in Botswana. Passengers arrive at a taxi rank, join a queue, and are assigned to vehicles heading to destinations such as school, work, or town.  
