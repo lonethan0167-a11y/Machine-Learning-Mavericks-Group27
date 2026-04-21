@@ -84,8 +84,6 @@ java -cp out com.ub.csi142.transport.app.Main
 
 ---
 
-### Part 2: Contributors & Roles
-```markdown
 ## Contributors & Roles
 This project was developed collaboratively by Machine-Learning-Mavericks-Group27.  
 Each member contributed to different parts of the system as outlined below:
