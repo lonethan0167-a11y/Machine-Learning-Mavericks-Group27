@@ -5,7 +5,7 @@ CSI142 Group Mini-Project Assignment– Machine-Learning-Mavericks-Group27
 This project was developed as part of the CSI142 Object-Oriented Programming course.  
 The goal is to demonstrate OOP principles in a small, realistic Java console application connected to Botswana’s everyday life.  
 
-##Overview
+#Overview
 This project simulates everyday commuting using taxis and combis in Botswana. Passengers arrive at a taxi rank, join a queue, and are assigned to vehicles heading to destinations such as school, work, or town.  
 
 The system demonstrates how **object-oriented programming (OOP) concepts from CSI142** come together in one coherent project. It manages passenger queues, assigns passengers to taxis/combis based on availability and route, and displays transport summaries.  
