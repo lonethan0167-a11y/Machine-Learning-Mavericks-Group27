@@ -1,6 +1,6 @@
 package com.ub.csi142.transport.model;
 
-public class Vehicle {
+public class Vehicle implements Automobile{
     protected String regNumber;
     protected int seatCapacity;
 
@@ -15,8 +15,8 @@ public class Vehicle {
         this.seatCapacity = seatCapacity;
     }
 
-    public String getRegNumber() { return regNumber; }
-    public int getSeatCapacity() { return seatCapacity; }
+    public String regNumber() { return regNumber; }
+    public int seatCapacity() { return seatCapacity; }
 
     public String describe() {
         return "Vehicle " + regNumber + " | Seats: " + seatCapacity;
