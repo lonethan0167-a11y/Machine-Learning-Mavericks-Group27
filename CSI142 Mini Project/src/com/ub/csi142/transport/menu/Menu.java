@@ -26,9 +26,13 @@ public class Menu {
     private final ArrayList<Passenger> passengers = new ArrayList<>();
     private final ArrayList<Driver> drivers = new ArrayList<>();
 private final ArrayList<Combi> combis = new ArrayList<>();
-private final ArrayList<Route> routes = new ArrayList<>();
-private final ArrayList<Trip> trips = new ArrayList<>();
-private final ArrayList<Booking> bookings = new ArrayList<>();
+private final ArrayList<Taxi> taxis = new ArrayList<>();
+private final ArrayList<Routecombi> routesC = new ArrayList<>();
+private final ArrayList<Routetaxi> routesT = new ArrayList<>();
+private final ArrayList<Tripcombi> tripsC = new ArrayList<>();
+private final ArrayList<Triptaxi> tripsT = new ArrayList<>();
+private final ArrayList<Bookingtaxi> bookingsT = new ArrayList<>();
+private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
 
 /**
      * Runs the interactive menu loop untill exit.
@@ -61,7 +65,7 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
     }
 
     private void printMenu() {
-        System.out.println("\n=== Combi Booking System ===");
+        System.out.println("\n=== Public Transport Booking System ===");
         System.out.println("1) View trips");
         System.out.println("2) Register passenger");
         System.out.println("3) Book seat(s)");
@@ -74,26 +78,42 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
         Driver d1 = new Driver("D001", "Thabo Driver", "71xxxxxx", "LIC-7788");
         drivers.add(d1);
 
+        Driver d2 = new Driver("D002", "Pule Dichaba", "75xxxxxx", "BWP 931");
+        drivers.add(d2);
+
         Combi c1 = new Combi("B123ABC", 15, d1, "Gaborone Rank");
           combis.add(c1);
 
-        Route r1 = new Route("Gaborone", "Molepolole", 50.0, 1.20, c1);
-        routes.add(r1);
+        Taxi tx1 = new Taxi("T456DEF", 4, d2, "Gaborone Rank");
+        taxis.add(tx1);
 
-        Trip t1 = new Trip("T001", r1, c1, 15);
-        trips.add(t1);
+        Routecombi r1 = new Routecombi("Gaborone", "Molepolole", 50.0, 1.20, c1);
+        routesC.add(r1);
+
+        Routetaxi r2 = new Routetaxi("Gaborone rank", "University of Botswana", 4.0, 2.50, tx1);
+        routesT.add(r2);
+
+        Tripcombi t1 = new Tripcombi("T001", r1, c1, 15);
+        tripsC.add(t1);
+
+        Triptaxi t2 = new Triptaxi("T002", r2, tx1, 4);
+        tripsT.add(t2);
     }
 
     private void listTrips() {
         System.out.println("\n--- Trips ---");
 
-        if (trips.isEmpty()) {
+        if (tripsC.isEmpty() && tripsT.isEmpty()) {
             System.out.println("(none)");
             return;
         }
 
-        for (Trip t : trips) {
+        for (Tripcombi t : tripsC) {
             System.out.println(t);
+        }
+
+        for (Triptaxi c : tripsT) {
+            System.out.println(c);
         }
     }
 
@@ -117,7 +137,7 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
             System.out.println("No passengers yet. Register a passenger first.");
             return;
         }
-          if (trips.isEmpty()) {
+          if (tripsC.isEmpty() || tripsT.isEmpty()) {
             System.out.println("No trips yet.");
             return;
         }
@@ -129,11 +149,14 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
             return;
         }
             String tid = readLine("Trip ID: ");
-        Trip t = findTrip(tid);
-        if (t == null) {
-            System.out.println("Trip not found.");
-            return;
-        }
+
+            Tripcombi t = findTripcombi(tid);
+            Triptaxi c = findTriptaxi(tid);
+            if (t == null && c == null) {
+                System.out.println("Trip not found.");
+                return;
+            }
+
 
         int seats = readInt("Seats to book: ");
         if (seats <= 0) {
@@ -145,32 +168,43 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
             return;
         }
 
-        Booking b = new Booking(p, t, seats);
-        bookings.add(b);
+        Bookingcombi b = new Bookingcombi(p, t, seats);
+        bookingsC.add(b);
 
         System.out.println("Booking created: " + b);
+
+        Bookingtaxi bt = new Bookingtaxi(p, c, seats);
+        bookingsT.add(bt);
     }
 
     private void cancelBooking() {        System.out.println("\n--- Cancel Booking ---");
         String bid = readLine("Booking ID: ");
 
-        Booking b = findBooking(bid);
+        Bookingcombi b = findBookingcombi(bid);
         if (b == null) {
             System.out.println("Booking not found.");
             return;
             }
 // (we remove booking here)
-        bookings.remove(b);
+        bookingsC.remove(b);
         System.out.println("Booking cancelled.");
+
+        Bookingtaxi bt = findBookingtaxi(bid);
+        if(bt == null) {
+            System.out.println("Booking not found.");
+            return;
+        }
+             bookingsT.remove(bt);
+            System.out.println("Booking cancelled.");
     }
 
     private void summaryReport() {
         System.out.println("\n--- Summary Report ---");
         System.out.println("Passengers: " + passengers.size());
-        System.out.println("Trips: " + trips.size());
-        System.out.println("Bookings: " + bookings.size());
+        System.out.println("Trips: " + (tripsC.size() + tripsT.size()));
+        System.out.println("Bookings: " + bookingsC.size() + bookingsT.size());
 
-        int totalSeatsBooked = bookings.size();   // quick calc
+        int totalSeatsBooked = bookingsC.size() + bookingsT.size();   // quick calc
         System.out.println("Total seats booked: " + totalSeatsBooked);
     }
 
@@ -183,19 +217,34 @@ private final ArrayList<Booking> bookings = new ArrayList<>();
         return null;
     }
 
-private Trip findTrip(String id) {
-        for (Trip t : trips) {
+private Tripcombi findTripcombi(String id) {
+        for (Tripcombi t : tripsC) {
             if (t.getTripId().equalsIgnoreCase(id)) return t;
         }
         return null;
     }
 
-    private Booking findBooking(String id) {
-        for (Booking b : bookings) {
+    private Triptaxi findTriptaxi(String id) {
+        for (Triptaxi t : tripsT) {
+            if (t.getTripId().equalsIgnoreCase(id)) return t;
+        }
+        return null;
+    }
+
+    private Bookingcombi findBookingcombi(String id) {
+        for (Bookingcombi b : bookingsC) {
             if (b.getBookingId().equalsIgnoreCase(id)) return b;
         }
         return null;
     }
+
+    private Bookingtaxi findBookingtaxi(String id) {
+        for (Bookingtaxi b : bookingsT) {
+            if (b.getBookingId().equalsIgnoreCase(id)) return b;
+        }
+        return null;
+    }
+
 
     private int readInt(String prompt) {
         while (true) {
