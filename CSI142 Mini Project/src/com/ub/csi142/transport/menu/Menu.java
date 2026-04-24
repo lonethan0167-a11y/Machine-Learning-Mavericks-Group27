@@ -87,17 +87,17 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
         Taxi tx1 = new Taxi("T456DEF", 4, d2, "Gaborone Rank");
         taxis.add(tx1);
 
-        Routecombi r1 = new Routecombi("Gaborone", "Molepolole", 50.0, 1.20, c1);
-        routesC.add(r1);
+        Routecombi rc1 = new Routecombi("Gaborone", "Molepolole", 50.0, 1.20, c1);
+        routesC.add(rc1);
 
-        Routetaxi r2 = new Routetaxi("Gaborone rank", "University of Botswana", 4.0, 2.50, tx1);
-        routesT.add(r2);
+        Routetaxi rc2 = new Routetaxi("Gaborone rank", "University of Botswana", 4.0, 2.50, tx1);
+        routesT.add(rc2);
 
-        Tripcombi t1 = new Tripcombi("T001", r1, c1, 15);
-        tripsC.add(t1);
+        Tripcombi tc1 = new Tripcombi("T001", rc1, c1, 15);
+        tripsC.add(tc1);
 
-        Triptaxi t2 = new Triptaxi("T002", r2, tx1, 4);
-        tripsT.add(t2);
+        Triptaxi tt1 = new Triptaxi("T002", rc2, tx1, 4);
+        tripsT.add(tt1);
     }
 
     private void listTrips() {
@@ -108,12 +108,12 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
             return;
         }
 
-        for (Tripcombi t : tripsC) {
-            System.out.println(t);
+        for (Tripcombi tc : tripsC) {
+            System.out.println(tc);
         }
 
-        for (Triptaxi c : tripsT) {
-            System.out.println(c);
+        for (Triptaxi tt : tripsT) {
+            System.out.println(tt);
         }
     }
 
