@@ -1,1 +1,26 @@
+# UML Class Diagram (Text Representation)
+
+Person
+ ├── Passenger
+ └── Driver
+
+Automobile (interface)
+ └── Vehicle
+      ├── Combi
+      └── Taxi
+
+Routecombi
+ └── Tripcombi
+      └── Bookingcombi
+
+Routetaxi
+ └── Triptaxi
+      └── Bookingtaxi
+
+Relationships:
+- Vehicle HAS-A Driver
+- Tripcombi HAS-A Routecombi and Combi
+- Triptaxi HAS-A Routetaxi and Taxi
+- Bookingcombi HAS-A Passenger and Tripcombi
+- Bookingtaxi HAS-A Passenger and Triptaxi
 
