@@ -103,18 +103,7 @@ This project was developed collaboratively by Machine-Learning-Mavericks-Group27
 Each member contributed to different parts of the system as outlined below:
 
 - Dylan Tsaone Monkgela – Transport Models  
-  - File ownership: Vehicle.java, Combi.java, Route.java  
-  - Actions: ensured inheritance and composition are clean, added validations  
-
 - Tshiamiso Gabriel Leswena – Trip & Booking  
-  - File ownership: Trip.java, Booking.java  
-  - Actions: seat logic, booking ID generation, cancel seat restore  
-
-- Wapapha Muzila – Menu & Integration  
-  - File ownership: Menu.java, Main.java  
-  - Actions: kept main runnable, consolidated merges, improved prompts  
-
+- Wapapha Muzila – Menu & Integration    
 - Rachel Ragele Molapo – People Models & Documentation  
-  - File ownership: Person.java, Passenger.java, Driver.java, README.md  
-  - Actions: inheritance, student discounts field, documentation polish  
 
