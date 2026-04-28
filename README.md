@@ -37,14 +37,20 @@ CSI142 Mini Project/
 │           ├── Person.java            # Base class for individuals
 │           ├── Passenger.java         # Passenger entity
 │           ├── Driver.java            # Driver entity
+│           ├── Automobile.java        # Interface for vehicles
 │           ├── Vehicle.java           # General transport unit
 │           ├── Combi.java             # Shared transport vehicle
-│           ├── Route.java             # Defines travel paths
-│           ├── Trip.java              # Represents a journey
-│           └── Booking.java           # Links passengers to trips
+│           ├── Taxi.java              # Taxi transport vehicle
+│           ├── Routecombi.java        # Defines combi travel paths
+│           ├── Routetaxi.java         # Defines taxi travel paths
+│           ├── Tripcombi.java         # Represents a combi journey
+│           ├── Triptaxi.java          # Represents a taxi journey
+│           ├── Bookingcombi.java      # Links passengers to combi trips
+│           └── Bookingtaxi.java       # Links passengers to taxi trips
 │── out/                               # Compiled .class files
 │── README.md                          # Project documentation
 │── .gitignore                         # Excludes .class files and output folders
+
 
 ##  Domain Model (Classes)
 - **Person** – Base entity for individuals  
@@ -59,12 +65,12 @@ CSI142 Mini Project/
 ##  OOP Elements Demonstrated
 - **Classes & Objects**: At least 6 meaningful domain classes  
 - **Encapsulation**: Private fields with controlled access  
-- **Constructors**: Overloaded and chained constructors  
-- **Composition**: Vehicles contain passengers and drivers  
-- **Inheritance**: `Combi` extends `Vehicle`  
-- **Abstraction**: Interfaces/abstract classes for transport contracts  
-- **Polymorphism**: Processing vehicles through superclass references  
-- **Collections**: `ArrayList` used for managing entities  
+- **Constructors**: Validations and initialization logic  
+- **Composition**: Vehicles contain drivers; trips contain routes and vehicles  
+- **Inheritance**: `Combi` and `Taxi` extend `Vehicle`; `Passenger` and `Driver` extend `Person` 
+- **Abstraction**: `Automobile` interface 
+- **Polymorphism**: `describe()` overridden in `Combi` and `Taxi`  
+- **Collections**: `ArrayList` used in `Menu` for managing entities 
 - **Packages**: `app`, `menu`, `model`  
 - **Robustness**: Input validation and exception handling  
 
