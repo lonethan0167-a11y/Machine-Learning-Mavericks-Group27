@@ -52,15 +52,25 @@ CSI142 Mini Project/
 │── .gitignore                         # Excludes .class files and output folders
 
 
-##  Domain Model (Classes)
-- **Person** – Base entity for individuals  
-- **Passenger** – Represents commuters using the system  
-- **Driver** – Manages vehicles and trips  
-- **Vehicle** – General transport unit  
-- **Combi** – Shared transport vehicle type  
-- **Route** – Defines travel paths and destinations  
-- **Trip** – Represents a journey with passengers and driver  
-- **Booking** – Links passengers to trips  
+## Code Snippets
+All main classes are implemented as follows:
+
+- **Main.java** – Application entry point  
+- **Menu.java** – Interactive console menu  
+- **Automobile.java** – Interface for vehicles  
+- **Vehicle.java** – Base class implementing `Automobile`  
+- **Combi.java** – Combi vehicle with driver and rank  
+- **Taxi.java** – Taxi vehicle with driver and rank  
+- **Driver.java** – Driver entity extending `Person`  
+- **Passenger.java** – Passenger entity extending `Person`  
+- **Routecombi.java** – Combi route with fare calculation  
+- **Routetaxi.java** – Taxi route with fare  
+- **Tripcombi.java** – Combi trip with seat management  
+- **Triptaxi.java** – Taxi trip with seat management  
+- **Bookingcombi.java** – Booking for combi trips  
+- **Bookingtaxi.java** – Booking for taxi trips  
+
+*(Full source code is included in the repository under `src/com/ub/csi142/transport/`.)*
 
 ##  OOP Elements Demonstrated
 - **Classes & Objects**: At least 6 meaningful domain classes  
