@@ -1,7 +1,7 @@
 package com.ub.csi142.transport.model;
 
 public class Bookingtaxi {
-    public static int counter = 0;
+    public static int counter = 1;
 
     private String bookingId;
     private Passenger passenger;
@@ -9,7 +9,7 @@ public class Bookingtaxi {
     private int seats;
 
     public Bookingtaxi(Passenger passenger, Triptaxi trip, int seats) {
-        this.bookingId = "B" + (counter++);
+        this.bookingId = "BT" + (counter++);
         this.passenger = passenger;
         this.trip = trip;
         this.seats = seats;
