@@ -158,12 +158,12 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
             }
 
 
-        int seats = readInt("Seats to book: ");
+        int seats = readInt("Seat(s) to book: ");
         if (seats <= 0) {
             System.out.println("Seats must be > 0.");
             return;
         }
-                if (!t.bookSeats(seats)) {
+                if (t.bookSeats(seats)) {
             System.out.println("Not enough seats available.");
             return;
         }
