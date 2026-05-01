@@ -163,18 +163,20 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
             System.out.println("Seats must be > 0.");
             return;
         }
-                if (t.bookSeats(seats)) {
+                if (!t.bookSeats(seats)) {
             System.out.println("Not enough seats available.");
             return;
         }
 
         Bookingcombi b = new Bookingcombi(p, t, seats);
-        bookingsC.add(b);
+        bookingsC.add(b);{
 
-        System.out.println("Booking created: " + b);
+        System.out.println("Booking created: " + b);}
 
         Bookingtaxi bt = new Bookingtaxi(p, c, seats);
-        bookingsT.add(bt);
+        bookingsT.add(bt);{
+            System.out.println("Booking created: " + bt);
+        }
     }
 
     private void cancelBooking() {        System.out.println("\n--- Cancel Booking ---");
