@@ -1,7 +1,7 @@
 package com.ub.csi142.transport.model;
 
 public class Bookingcombi {
-    private static int counter = 0;
+    private static int counter = 1;
 
     private String bookingId;
     private Passenger passenger;
