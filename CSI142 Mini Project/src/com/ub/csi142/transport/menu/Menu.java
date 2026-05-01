@@ -149,9 +149,9 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
             return;
         }
             String tid = readLine("Trip ID: ");
-
             Tripcombi t = findTripcombi(tid);
             Triptaxi c = findTriptaxi(tid);
+            
             if (t == null && c == null) {
                 System.out.println("Trip not found.");
                 return;
@@ -163,51 +163,61 @@ private final ArrayList<Bookingcombi> bookingsC = new ArrayList<>();
             System.out.println("Seats must be > 0.");
             return;
         }
-                if (!t.bookSeats(seats)) {
+        if(t != null){
+            if (!t.bookSeats(seats)) {
             System.out.println("Not enough seats available.");
             return;
-        }
+            }
+            Bookingcombi b = new Bookingcombi(p, t, seats);
+            bookingsC.add(b);
+            System.out.println("Booking created: " + b);
+            }else{    
+                if(!c.bookSeats(seats)){
+                    System.out.println("Not enought seats");
+                    return;
+                }
 
-        Bookingcombi b = new Bookingcombi(p, t, seats);
-        bookingsC.add(b);{
-
-        System.out.println("Booking created: " + b);}
-
-        Bookingtaxi bt = new Bookingtaxi(p, c, seats);
-        bookingsT.add(bt);{
+            Bookingtaxi bt = new Bookingtaxi(p, c, seats);
+            bookingsT.add(bt);
             System.out.println("Booking created: " + bt);
-        }
+            }
+        
     }
 
     private void cancelBooking() {        System.out.println("\n--- Cancel Booking ---");
         String bid = readLine("Booking ID: ");
 
         Bookingcombi b = findBookingcombi(bid);
-        if (b == null) {
-            System.out.println("Booking not found.");
+        if (b != null) {
+            bookingsC.remove(b);
+            System.out.println("Combi booking cancelled");
             return;
             }
-// (we remove booking here)
-        bookingsC.remove(b);
-        System.out.println("Booking cancelled.");
 
         Bookingtaxi bt = findBookingtaxi(bid);
-        if(bt == null) {
-            System.out.println("Booking not found.");
+        if(bt != null) {
+            bookingsT.remove(bt);
+            System.out.println("Taxi booking cancelled.");
             return;
         }
-             bookingsT.remove(bt);
-            System.out.println("Booking cancelled.");
+        System.out.println("Booking not found");
     }
 
     private void summaryReport() {
         System.out.println("\n--- Summary Report ---");
         System.out.println("Passengers: " + passengers.size());
         System.out.println("Trips: " + (tripsC.size() + tripsT.size()));
-        System.out.println("Bookings: " + bookingsC.size() + bookingsT.size());
+        System.out.println("Bookings: " + (bookingsC.size() + bookingsT.size()));
 
-        int totalSeatsBooked = bookingsC.size() + bookingsT.size();   // quick calc
-        System.out.println("Total seats booked: " + totalSeatsBooked);
+        int totalSeatBooked = 0;
+        
+        for (Bookingcombi b : bookingsC){
+            totalSeatBooked += b.getSeats();
+        }
+        for (Bookingtaxi bt : bookingsT){
+            totalSeatBooked += bt.getSeats();
+        }
+        System.out.println("Total seats booked: " + totalSeatBooked);
     }
 
     // helpers
